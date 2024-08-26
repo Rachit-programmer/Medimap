@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediMap - Navigate the Hospital</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <style>
+        body { background-color: #f0f8ff; font-family: Arial, sans-serif; }
+        .map-container { position: relative; width: 90%; max-width: 800px; margin: 50px auto; padding: 20px; background-color: #fff; border-radius: 10px; border: 2px solid #333; }
+        .room, .corridor { position: relative; display: inline-block; text-align: center; vertical-align: top; z-index: 1; }
+        .room { width: 150px; height: 100px; background-color: #C9EFFF; border: 2px solid #333; margin: 10px; line-height: 100px; cursor: pointer; }
+        .room.highlight { background-color: #FFD700; }
+        .corridor { width: 50px; height: 100px; background-color: #e6e6e6; margin: 10px; }
+        .path { background-color: #ADD8E6; }
+        canvas { position: absolute; top: 0; left: 0; z-index: 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center">MediMap - Hospital Navigation</h2>
+        <div class="map-container">
+            <canvas id="navigationCanvas"></canvas>
+            <div class="room" id="reception" onclick="navigate('reception')">Reception</div>
+            <div class="corridor"></div>
+            <div class="room" id="opd" onclick="navigate('opd')">OPD</div>
+            <div class="corridor"></div>
+            <div class="room" id="ipd" onclick="navigate('ipd')">IPD</div>
+            <div class="corridor"></div>
+            <div class="room" id="icu" onclick="navigate('icu')">ICU</div>
+            <div class="corridor"></div>
+            <div class="room" id="ot" onclick="navigate('ot')">OT</div>
+            <div class="corridor"></div>
+            <div class="room" id="lab" onclick="navigate('lab')">Lab</div>
+            <div class="corridor"></div>
+            <div class="room" id="pharmacy" onclick="navigate('pharmacy')">Pharmacy</div>
+        </div>
+        <br>
+        <h3 class="text-center">Navigation Instructions</h3>
+        <div id="instructions" class="text-center" style="font-size: 20px;"></div>
+    </div>
+    <script src="navigation.js"></script>
+</body>
+</html>
